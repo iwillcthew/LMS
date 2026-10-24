@@ -1649,9 +1649,9 @@
     "platform": "Platform",
     "home": "Home",
     "content": "Content",
-    "people": "People",
+    "people": "Ekip",
     "back_to_app": "Uygulamaya geri dön",
-    "create": "Create",
+    "create": "Eğitim",
     "dashboard": "Dashboard",
     "stats": "Stats",
     "analytics": "Analytics",
@@ -1659,7 +1659,7 @@
     "courses": "Kurslar",
     "tags": "Tags",
     "community": "Topluluk",
-    "audience": "Audience",
+    "audience": "Çalışanlar",
     "media": "Media",
     "distribute": "Dağıt",
     "widgets": "Widget'lar",
@@ -1676,7 +1676,7 @@
     "upgrade_count": "{studentCount}/{studentLimit}",
     "upgrade_students": "{studentCount} {studentLimit} öğrenciden",
     "upgrade_left": "{count} kaldı",
-    "cohorts": "Cohorts",
+    "cohorts": "Eğitim programları",
     "exit_course": "Bu kurstan çık",
     "exit_cohort": "Bu gruptan çık"
   },
@@ -2188,8 +2188,8 @@
     "view_more": "Daha fazlasını görüntüleyin",
     "no_of_courses": "Kurs sayısı",
     "no_courses_description": "Bu organizasyon içinde oluşturulan kurslar",
-    "total_students": "Toplam öğrenci",
-    "total_students_description": "Öğrenci bazında kayıtlar",
+    "total_students": "Toplam çalışan",
+    "total_students_description": "Kuruluşunuza kayıtlı çalışanlar",
     "top_courses": "En İyi Kurslar",
     "students": "öğrenciler",
     "student": "öğrenci",
@@ -6431,5 +6431,17 @@
     "new_badge": "Yeni",
     "read_full": "Tüm değişiklik günlüğünü oku",
     "close": "Kapat"
+  },
+  "mp_learning": {
+    "eyebrow": "Çalışan eğitim portalı",
+    "headline": "Bugün öğren. Yarını dönüştür.",
+    "description": "MP Transformation ile becerilerini geliştir ve bilgilerini uygula.",
+    "learn": "Öğren",
+    "practice": "Uygula",
+    "grow": "Geliş",
+    "internal": "MP Transformation çalışanları için",
+    "sign_in_description": "Onaylı iş hesabınızla giriş yapın.",
+    "invitation_hint": "Davet aldınız mı?",
+    "activate": "Hesabı etkinleştir"
   }
 }

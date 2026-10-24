@@ -4,7 +4,7 @@
   import * as Page from '@cio/ui/base/page';
 </script>
 
-<svelte:head><title>{t.get('automation.tabs.webhooks')} - ClassroomIO</title></svelte:head>
+<svelte:head><title>{t.get('automation.tabs.webhooks')} - MP Learning</title></svelte:head>
 <Page.Header
   ><Page.HeaderContent
     ><Page.Title>{$t('automation.tabs.webhooks')}</Page.Title><Page.Subtitle

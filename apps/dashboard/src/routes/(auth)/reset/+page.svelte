@@ -37,7 +37,7 @@
 </script>
 
 <svelte:head>
-  <title>Reset Password - ClassroomIO</title>
+  <title>Reset Password - MP Learning</title>
 </svelte:head>
 
 <AuthUI

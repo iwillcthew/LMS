@@ -346,7 +346,7 @@ class AppInitApi extends BaseApi {
       return;
     }
 
-    if (redirect) {
+    if (redirect && redirect.startsWith('/') && !redirect.startsWith('//') && !redirect.includes('\\')) {
       console.log('redirecting to', redirect);
       // goto redirect won't accept dynamic url so we need to use window.location.href
       window.location.href = redirect;
@@ -354,7 +354,7 @@ class AppInitApi extends BaseApi {
     }
 
     // This allows you to be on the landing page of an organization site and not be redirected
-    if (isPublicRoute(path) && (path !== '/' || isOrgSite)) {
+    if (isPublicRoute(path) && !['/', '/login', '/signup'].includes(path)) {
       console.log('no redirect is needed');
       return;
     }

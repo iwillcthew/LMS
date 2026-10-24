@@ -4,7 +4,7 @@
   import { orgs } from '$lib/utils/store/org';
 
   import NavMain from './nav-main.svelte';
-  import OrgLogo from '../org-sidebar/org-logo.svelte';
+  import OrgLogo from '../org-sidebar/app-logo.svelte';
   import { SidebarFooterMenu } from '../footer';
   import SidebarSkeleton from '../sidebar-skeleton.svelte';
 

@@ -107,7 +107,8 @@
             }
 
             const redirect = redirectUrl || '/';
-            window.location.href = redirect.startsWith('/') ? redirect : `/?redirect=${encodeURIComponent(redirect)}`;
+            window.location.href =
+              redirect.startsWith('/') && !redirect.startsWith('//') && !redirect.includes('\\') ? redirect : '/';
           }
         }
       );
@@ -124,7 +125,7 @@
 </script>
 
 <svelte:head>
-  <title>Welcome back to {$currentOrg.name || 'ClassroomIO'}</title>
+  <title>{$t('login.login')} · MP Learning</title>
 </svelte:head>
 
 {#snippet getPasswordAuthAlternative()}

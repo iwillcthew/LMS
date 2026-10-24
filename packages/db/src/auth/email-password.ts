@@ -11,6 +11,7 @@ import { sendEmail } from '@cio/email';
  */
 export const config: BetterAuthOptions['emailAndPassword'] = {
   enabled: true,
+  requireEmailVerification: true,
   password: {
     hash: async (password) => {
       return await bcrypt.hash(password, 10);

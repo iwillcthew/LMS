@@ -22,7 +22,7 @@
 </script>
 
 <svelte:head>
-  <title>Settings - ClassroomIO</title>
+  <title>Settings - MP Learning</title>
 </svelte:head>
 
 <Page.Header>

@@ -6,7 +6,7 @@ export function getOrgFaviconHref(
 ): string | null {
   const favicon = org?.favicon?.trim();
   const avatarUrl = org?.avatarUrl?.trim();
-  const rawHref = favicon || avatarUrl;
+  const rawHref = favicon || avatarUrl || '/brand/mp-transformation.png';
 
   if (!rawHref) {
     return null;

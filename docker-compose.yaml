@@ -56,7 +56,7 @@ services:
         EOF
         exec /entrypoint.sh server -s3 -s3.port=9000 -s3.config=/etc/seaweedfs/s3.json -s3.allowedOrigins=*
     ports:
-      - '9000:9000'
+      - '127.0.0.1:9000:9000'
     environment:
       OBJECT_STORAGE_ACCESS_KEY_ID: ${OBJECT_STORAGE_ACCESS_KEY_ID:-classroomio}
       OBJECT_STORAGE_SECRET_ACCESS_KEY: ${OBJECT_STORAGE_SECRET_ACCESS_KEY:-classroomio-local-dev-secret}
@@ -105,7 +105,7 @@ services:
       dockerfile: docker/Dockerfile.api
     container_name: cio-api
     ports:
-      - '3081:3081'
+      - '127.0.0.1:3081:3081'
     depends_on:
       postgres:
         condition: service_healthy
@@ -132,8 +132,9 @@ services:
       DATABASE_URL: postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-classroomio}
       REDIS_URL: redis://redis:6379
       PUBLIC_IS_SELFHOSTED: ${PUBLIC_IS_SELFHOSTED:-true}
-      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID:-docker-local-client-id}
-      GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET:-docker-local-client-secret}
+      LMS_ALLOWED_EMAILS: ${LMS_ALLOWED_EMAILS:-}
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID:-}
+      GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET:-}
       SMTP_HOST: ${SMTP_HOST:-}
       SMTP_USER: ${SMTP_USER:-}
       SMTP_PASSWORD: ${SMTP_PASSWORD:-}
@@ -154,6 +155,10 @@ services:
       DASHBOARD_ORIGIN: ${DASHBOARD_ORIGIN:-}
       LICENSE_KEY: ${LICENSE_KEY:-}
       UNSPLASH_API_KEY: ${UNSPLASH_API_KEY:-}
+      GOOGLE_API_KEY: ${GOOGLE_API_KEY:-}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      MOONSHOT_API_KEY: ${MOONSHOT_API_KEY:-}
       # Upload size limits (megabytes). Unset = built-in defaults — see .env.example.
       UPLOAD_MAX_DOCUMENT_MB: ${UPLOAD_MAX_DOCUMENT_MB:-}
       UPLOAD_MAX_IMAGE_MB: ${UPLOAD_MAX_IMAGE_MB:-}
@@ -172,7 +177,7 @@ services:
         PUBLIC_IS_SELFHOSTED: ${PUBLIC_IS_SELFHOSTED:-true}
     container_name: cio-dashboard
     ports:
-      - '3082:3082'
+      - '127.0.0.1:3082:3082'
     depends_on:
       api:
         condition: service_healthy
@@ -183,6 +188,8 @@ services:
       PUBLIC_IS_SELFHOSTED: ${PUBLIC_IS_SELFHOSTED:-true}
       PRIVATE_SERVER_URL: ${PRIVATE_SERVER_URL:-http://api:3081}
       PRIVATE_SERVER_KEY: ${PRIVATE_SERVER_KEY:?set a strong PRIVATE_SERVER_KEY in .env}
+      PUBLIC_IS_AI_ENABLED: ${PUBLIC_IS_AI_ENABLED:-false}
+      PUBLIC_GOOGLE_AUTH_ENABLED: ${PUBLIC_GOOGLE_AUTH_ENABLED:-false}
       PRIVATE_APP_HOST: ${PRIVATE_APP_HOST:-localhost}
       PRIVATE_APP_SUBDOMAINS: ${PRIVATE_APP_SUBDOMAINS:-app}
       ALLOWED_EXTERNAL_DOMAINS: ${ALLOWED_EXTERNAL_DOMAINS:-}
@@ -241,8 +248,11 @@ services:
       SMTP_SENDER: ${SMTP_SENDER:-}
       # Transcription + OpenAI-backed agent runs.
       OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      GOOGLE_API_KEY: ${GOOGLE_API_KEY:-}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      MOONSHOT_API_KEY: ${MOONSHOT_API_KEY:-}
       CIO_DEPLOYMENT_METHOD: ${CIO_DEPLOYMENT_METHOD:-}
-      CIO_TELEMETRY_DISABLED: ${CIO_TELEMETRY_DISABLED:-}
+      CIO_TELEMETRY_DISABLED: ${CIO_TELEMETRY_DISABLED:-true}
       LICENSE_KEY: ${LICENSE_KEY:-}
     restart: unless-stopped
 

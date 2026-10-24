@@ -44,12 +44,14 @@ import { reportRouter } from '@api/routes/report';
 import rateLimiter from '@api/middlewares/rate-limiter';
 import { secureHeaders } from 'hono/secure-headers';
 import { signupGuard } from '@api/middlewares/signup-guard';
+import { internalLearning } from '@api/middlewares/internal-learning';
 import { ssoDiscoveryRouter } from '@api/routes/sso/discovery';
 import { unsplashRouter } from '@api/routes/unsplash/unsplash';
 import { v1Router } from '@api/routes/v1';
 
 // Create Hono app with chaining for RPC support
 export const app = new Hono()
+  .use('*', internalLearning)
   // Middleware
   .use('*', logger())
   .use('*', prettyJSON())

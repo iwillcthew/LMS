@@ -15,7 +15,7 @@
   import { UserAvatar } from '@cio/ui/custom/user-avatar';
   import { Progress } from '@cio/ui/base/progress';
   import { Button } from '@cio/ui/base/button';
-  import { ActivityCard, VisitOrgSiteButton } from '$features/ui';
+  import { ActivityCard } from '$features/ui';
   import LoginActivityChart from '$features/org/components/login-activity-chart.svelte';
   import * as Page from '@cio/ui/base/page';
   import { Empty } from '@cio/ui/custom/empty';
@@ -34,7 +34,7 @@
 </script>
 
 <svelte:head>
-  <title>Dashboard - ClassroomIO</title>
+  <title>{$t('org_navigation.dashboard')} · MP Learning</title>
 </svelte:head>
 
 <Page.Root class="w-full">
@@ -47,8 +47,6 @@
     </Page.HeaderContent>
     <Page.Action>
       <CreateCourseButton variant="outline" isResponsive />
-
-      <VisitOrgSiteButton />
     </Page.Action>
   </Page.Header>
   <Page.Body>

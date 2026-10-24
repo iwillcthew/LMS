@@ -1,6 +1,7 @@
 packages:
   - apps/*
   - '!apps/db-agent'
+  - '!apps/website'
   - packages/*
   - packages/course-app/src/*
 onlyBuiltDependencies:

@@ -3307,8 +3307,8 @@
     "view_courses": "Ver cursos",
     "no_of_courses": "Número de cursos",
     "no_courses_description": "Cursos creados dentro de esta organización.",
-    "total_students": "Estudiantes totales",
-    "total_students_description": "Basado en la matrícula de estudiantes",
+    "total_students": "Total de empleados",
+    "total_students_description": "Empleados inscritos en tu organización",
     "top_courses": "Cursos principales",
     "students": "estudiantes",
     "student": "estudiante",
@@ -3580,7 +3580,7 @@
     "dashboard": "Panel",
     "courses": "Cursos",
     "community": "Comunidad",
-    "audience": "Audiencia",
+    "audience": "Empleados",
     "media": "Medios",
     "setup": "Configuración",
     "help": "Ayuda",
@@ -3594,7 +3594,7 @@
     "stats": "Estadísticas",
     "analytics": "Analíticas",
     "compliance": "Cumplimiento",
-    "cohorts": "Cohortes",
+    "cohorts": "Programas de formación",
     "exit_course": "Salir de este curso",
     "exit_cohort": "Salir de esta cohorte",
     "upgrade_now": "Actualiza ahora",
@@ -3603,7 +3603,7 @@
     "upgrade_students": "{studentCount} de {studentLimit} estudiantes",
     "upgrade_left": "{count} restante",
     "back_to_app": "Volver a la aplicación",
-    "create": "crear",
+    "create": "Formación",
     "distribute": "Distribuir",
     "tools": "Herramientas"
   },
@@ -6465,5 +6465,17 @@
     "new_badge": "Nuevo",
     "read_full": "Leer el registro de cambios completo",
     "close": "Cerrar"
+  },
+  "mp_learning": {
+    "eyebrow": "Portal de formación interna",
+    "headline": "Aprende hoy. Transforma el mañana.",
+    "description": "Desarrolla habilidades y aplica tus conocimientos en MP Transformation.",
+    "learn": "Aprender",
+    "practice": "Practicar",
+    "grow": "Crecer",
+    "internal": "Para empleados de MP Transformation",
+    "sign_in_description": "Inicia sesión con tu cuenta de trabajo autorizada.",
+    "invitation_hint": "¿Tienes una invitación?",
+    "activate": "Activar cuenta"
   }
 }

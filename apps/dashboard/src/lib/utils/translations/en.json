@@ -1641,7 +1641,7 @@
     "content": "Content",
     "people": "People",
     "back_to_app": "Back to app",
-    "create": "Create",
+    "create": "Training",
     "dashboard": "Dashboard",
     "stats": "Stats",
     "analytics": "Analytics",
@@ -1649,7 +1649,7 @@
     "courses": "Courses",
     "tags": "Tags",
     "community": "Community",
-    "audience": "Audience",
+    "audience": "Employees",
     "media": "Media",
     "distribute": "Distribute",
     "widgets": "Widgets",
@@ -1666,7 +1666,7 @@
     "upgrade_count": "{studentCount}/{studentLimit}",
     "upgrade_students": "{studentCount} of {studentLimit} students",
     "upgrade_left": "{count} left",
-    "cohorts": "Cohorts",
+    "cohorts": "Training programs",
     "exit_course": "Exit this course",
     "exit_cohort": "Exit this cohort"
   },
@@ -2192,8 +2192,8 @@
     "view_more": "View more",
     "no_of_courses": "Number of courses",
     "no_courses_description": "Courses created within this organization",
-    "total_students": "Total students",
-    "total_students_description": "Based on student enrollments",
+    "total_students": "Total employees",
+    "total_students_description": "Employees enrolled in your organization",
     "top_courses": "Top Courses",
     "students": "students",
     "student": "student",
@@ -6435,5 +6435,17 @@
     "new_badge": "New",
     "read_full": "Read the full changelog",
     "close": "Close"
+  },
+  "mp_learning": {
+    "eyebrow": "Employee learning portal",
+    "headline": "Learn today.\nTransform tomorrow.",
+    "description": "A shared space to build skills, put knowledge into practice, and grow together at MP Transformation.",
+    "learn": "Learn",
+    "practice": "Practice",
+    "grow": "Grow",
+    "internal": "For MP Transformation employees",
+    "sign_in_description": "Sign in with your approved work account to continue learning.",
+    "invitation_hint": "Have an invitation?",
+    "activate": "Activate account"
   }
 }

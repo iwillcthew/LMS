@@ -1,13 +1,9 @@
 <script lang="ts">
   import { resolve } from '$app/paths';
   import { goto } from '$app/navigation';
-  import { basePath, globalStore } from '$lib/utils/store/app';
+  import { basePath } from '$lib/utils/store/app';
   import * as DropdownMenu from '@cio/ui/base/dropdown-menu';
-  import BellPlusIcon from '@lucide/svelte/icons/bell-plus';
-  import BookOpenIcon from '@lucide/svelte/icons/book-open';
-  import BadgeHelpIcon from '@lucide/svelte/icons/badge-help';
   import LogOutIcon from '@lucide/svelte/icons/log-out';
-  import MessageSquarePlusIcon from '@lucide/svelte/icons/message-square-plus';
   import SettingsIcon from '@lucide/svelte/icons/settings';
   import * as Sidebar from '@cio/ui/base/sidebar';
   import { UserAvatar } from '@cio/ui/custom/user-avatar';
@@ -18,11 +14,7 @@
   import { t } from '$lib/utils/functions/translations';
   import { profile } from '$lib/utils/store/user';
   import { currentOrg } from '$lib/utils/store/org';
-  import { showUserJotWidget } from '$lib/utils/services/userjot';
   import { ROLE } from '@cio/utils/constants';
-
-  const SUPPORT_EMAIL = 'help@classroomio.com';
-  const DOCS_URL = 'https://classroomio.com/docs';
 
   const sidebar = useSidebar();
 
@@ -121,38 +113,6 @@
 
         <DropdownMenu.Group>
           <div class="cursor-pointer space-y-2">
-            {#if !$globalStore.isOrgSite}
-              <div class="space-y-4">
-                <DropdownMenu.Item class="m-0" onclick={() => showUserJotWidget('updates')}>
-                  <span class="flex w-full items-center gap-2">
-                    <BellPlusIcon size={16} />
-                    <p class="text-sm">{$t('profileMenu.whats_new')}</p>
-                  </span>
-                </DropdownMenu.Item>
-
-                <DropdownMenu.Item class="m-0" onclick={() => showUserJotWidget('feedback')}>
-                  <span class="flex w-full items-center gap-2">
-                    <MessageSquarePlusIcon size={16} />
-                    <p class="text-sm">{$t('profileMenu.feedback')}</p>
-                  </span>
-                </DropdownMenu.Item>
-
-                <DropdownMenu.Item class="m-0">
-                  <a href={DOCS_URL} target="_blank" rel="noopener noreferrer" class="flex w-full items-center gap-2">
-                    <BookOpenIcon size={16} />
-                    <p class="text-sm">{$t('profileMenu.documentation')}</p>
-                  </a>
-                </DropdownMenu.Item>
-
-                <DropdownMenu.Item class="m-0">
-                  <a href="mailto:{SUPPORT_EMAIL}" class="flex w-full items-center gap-2">
-                    <BadgeHelpIcon size={16} />
-                    <p class="text-sm">{$t('profileMenu.need_help')}</p>
-                  </a>
-                </DropdownMenu.Item>
-              </div>
-            {/if}
-
             <DropdownMenu.Separator />
 
             <DropdownMenu.Item onclick={() => goto(resolve(`/logout`, {}))}>

@@ -3,7 +3,7 @@
 </script>
 
 <svelte:head>
-  <title>AI Tutor Settings - ClassroomIO</title>
+  <title>AI Tutor Settings - MP Learning</title>
 </svelte:head>
 
 <OrgAiTutorSettingsPage />

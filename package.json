@@ -1,5 +1,5 @@
 {
-  "name": "classroomio",
+  "name": "mp-learning",
   "version": "0.1.13",
   "scripts": {
     "build": "turbo run build",
@@ -34,15 +34,14 @@
     "help:build": "pnpm --filter @cio/help build",
     "help:validate": "pnpm --filter @cio/help validate",
     "help:check-stale": "pnpm --filter @cio/help check-stale",
-    "website:dev": "pnpm --filter=@cio/website run dev",
-    "website:dev:https": "cross-env HTTPS=true pnpm run website:dev",
     "embeds:dev": "pnpm --filter=@cio/embeds --filter=@cio/ui run dev",
     "embeds:dev:https": "cross-env HTTPS=true pnpm run embeds:dev",
     "storybook:dev": "pnpm --filter=@cio/storybook --filter=@cio/ui --filter=@cio/question-types run dev",
     "storybook:dev:https": "cross-env HTTPS=true pnpm run storybook:dev",
     "mcp:build": "pnpm --filter @cio/question-types build && pnpm --filter @cio/utils build && pnpm --filter @classroomio/mcp build",
     "db:push": "pnpm --filter @cio/db db push",
-    "demo:playwright": "playwright test --config e2e/playwright.config.ts"
+    "demo:playwright": "playwright test --config e2e/playwright.config.ts",
+    "mp:setup": "node scripts/setup-mp.mjs"
   },
   "license": "MIT",
   "dependencies": {

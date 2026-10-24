@@ -1,8 +1,8 @@
 import { getSessionData } from '$lib/utils/services/auth/session';
-import { getHasCioCookies } from '$lib/utils/functions/cookies';
 import { applyCspExtensions } from '$lib/utils/csp';
 import { proxyRequestToApi, shouldForwardToApi } from '$lib/utils/proxy-api-request';
-import { type Handle, type HandleServerError, isRedirect, redirect } from '@sveltejs/kit';
+import { type Handle, type HandleServerError, error, isRedirect, redirect } from '@sveltejs/kit';
+import { isEmployeeContentPage, isRetiredPage } from '$lib/utils/functions/routes/internal-routes';
 import { isPublicApiRoute, isPublicRoute } from '$lib/utils/functions/routes/isPublicRoute';
 import { ROUTE } from '$lib/utils/constants/routes';
 import { isCustomDomainHost } from '$lib/utils/functions/custom-domain';
@@ -171,13 +171,19 @@ export const handle: Handle = async (args) => {
 
 const handlePagesRoutes: Handle = async ({ event, resolve }) => {
   const { pathname } = event.url;
-  const hasCioCookie = getHasCioCookies(event.cookies);
+
+  if (isRetiredPage(pathname)) error(404, 'Not found');
+
+  if (isEmployeeContentPage(pathname) && !event.locals.user) {
+    const returnPath = encodeURIComponent(pathname + event.url.search);
+    redirect(303, `/login?redirect=${returnPath}`);
+  }
 
   if (isPublicRoute(pathname)) {
     return resolve(event);
   }
 
-  if (!event?.locals?.user && !hasCioCookie) {
+  if (!event?.locals?.user) {
     console.log('no user and no cio cookie, redirecting to login');
     const shouldAddRedirectParam = !pathname.includes(ROUTE.LOGOUT);
     const fullPath = pathname + event.url.search;

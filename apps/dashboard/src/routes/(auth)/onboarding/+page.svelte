@@ -9,7 +9,7 @@
   import ArrowRightIcon from '@lucide/svelte/icons/arrow-right';
   import ChevronLeftIcon from '@lucide/svelte/icons/chevron-left';
 
-  import { Stepper, TestimonialPanel } from '$features/onboarding/components';
+  import { Stepper } from '$features/onboarding/components';
   import { currentOrg } from '$lib/utils/store/org';
   import { profile } from '$lib/utils/store/user';
   import { onboardingApi } from '$features/onboarding/api/onboarding.svelte';
@@ -41,8 +41,8 @@
 
   let fields: OnboardingField = $state({
     fullname: '',
-    orgName: '',
-    siteName: '',
+    orgName: 'MP Transformation',
+    siteName: 'mp-transformation',
     useCases: [],
     useCaseOther: '',
     learningMethod: '',
@@ -54,7 +54,7 @@
     sourceOther: '',
     aiProvider: '',
     aiProviderOther: '',
-    locale: 'en'
+    locale: 'vi'
   });
   let isSiteNameTouched = $state(false);
 
@@ -133,7 +133,7 @@
     fields.sourceOther = $profile.sourceOther ?? '';
     fields.aiProvider = $profile.aiProvider ?? '';
     fields.aiProviderOther = $profile.aiProviderOther ?? '';
-    fields.locale = $profile.locale ?? 'en';
+    fields.locale = $profile.locale ?? 'vi';
   }
 
   let hasInitializedFromProfile = false;
@@ -194,14 +194,8 @@
   <div class="ui:bg-background grid min-h-screen w-full grid-cols-1 lg:grid-cols-2">
     <div class="relative flex flex-col px-4 lg:px-12">
       <header class="flex justify-center pt-6 md:block">
-        <a
-          href="https://classroomio.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="flex w-fit items-center gap-2"
-        >
-          <img src="/logo-512.png" class="h-7 w-7" alt="ClassroomIO Logo" />
-          <span class="text-base font-semibold dark:text-white">ClassroomIO</span>
+        <a href="/" target="_blank" rel="noopener noreferrer" class="flex w-fit items-center gap-2">
+          <img src="/brand/mp-transformation.png" class="h-auto w-52 rounded bg-white p-2" alt="MP Transformation" />
         </a>
         <p class="ui:text-muted-foreground mt-1 hidden text-sm md:block">{$t('onboarding.header.tagline')}</p>
       </header>
@@ -246,7 +240,7 @@
                   bind:value={fields.orgName}
                   name="orgname"
                   type="text"
-                  placeholder="e.g My School Name"
+                  placeholder="MP Transformation"
                   disabled={isOrganizationCreated}
                   oninput={() => onboardingApi.clearError('orgName')}
                 />
@@ -260,9 +254,9 @@
                 <DomainInput
                   bind:value={fields.siteName}
                   disabled={isOrganizationCreated}
-                  placeholder="myschool"
-                  prefix="https://"
-                  suffix=".classroomio.com"
+                  placeholder="mp-transformation"
+                  prefix="/org/"
+                  suffix=""
                   oninput={() => {
                     isSiteNameTouched = true;
                     onboardingApi.errors.siteName = '';
@@ -439,7 +433,5 @@
         <BlockSkyline rows={6} />
       </div>
     </div>
-
-    <TestimonialPanel />
   </div>
 {/if}

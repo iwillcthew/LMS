@@ -115,8 +115,8 @@
 
 <svelte:head>
   {#if !data.isOrgSite}
-    <link rel="icon" type="image/png" href="/favicon.ico" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/logo-32.png" />
+    <link rel="icon" type="image/png" href="/brand/mp-transformation.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/brand/mp-transformation.png" />
   {/if}
 </svelte:head>
 

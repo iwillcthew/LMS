@@ -2,7 +2,6 @@ import type { EmailBranding } from '../core/branding';
 import type { EmailLocale, StudentEmailLocaleCopy } from '@cio/utils/email';
 
 const DEFAULT_BUTTON_COLOR = '#1D4EE2';
-const CLASSROOMIO_LOGO = 'https://brand.cdn.clsrio.com/cio-bg-transparent.png';
 const DEFAULT_FOOTER_COPY: StudentEmailLocaleCopy['footer'] = {
   rightsReserved: 'All rights reserved.',
   website: 'Website',
@@ -29,9 +28,7 @@ function buildMasthead(branding: EmailBranding): string {
     return `<span style="font-size:18px;font-weight:600;color:#111827;">${orgName}</span>`;
   }
 
-  return `<a href="https://classroomio.com" target="_blank">
-        <img src="${CLASSROOMIO_LOGO}" alt="ClassroomIO" width="130" style="width:130px;height:auto;display:block;" />
-      </a>`;
+  return '<span style="font-size:20px;font-weight:600;color:#164b91;">MP Transformation · Learning</span>';
 }
 
 export const getDefaultTemplate = (
@@ -160,13 +157,7 @@ export const getDefaultTemplate = (
       color:#94a3b8;
       padding:24px 30px;
       border-top:1px solid #f0f0f0;">
-      ClassroomIO ${new Date().getFullYear()}. ${footerCopy.rightsReserved}
-      <br />
-      <a href="https://classroomio.com" style="color:#94a3b8;text-decoration:none;">${footerCopy.website}</a>
-      &nbsp;&middot;&nbsp;
-      <a href="https://classroomio.com/tos" style="color:#94a3b8;text-decoration:none;">${footerCopy.terms}</a>
-      &nbsp;&middot;&nbsp;
-      <a href="https://classroomio.com/privacy" style="color:#94a3b8;text-decoration:none;">${footerCopy.privacy}</a>
+      MP Transformation · Learning · ${new Date().getFullYear()}
     </div>
   </div>
 </body>

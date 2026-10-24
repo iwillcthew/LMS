@@ -6,12 +6,10 @@ import {
   DashboardIcon,
   GoalIcon,
   HomeIcon,
-  LandingPageIcon,
   PeopleIcon,
   SettingsIcon,
   TagIcon
 } from '@cio/ui/custom/moving-icons';
-import WidgetsIcon from '@cio/ui/custom/moving-icons/widgets.svelte';
 
 import type { AccountOrg } from '$features/app/types';
 import BotIcon from '@lucide/svelte/icons/bot';
@@ -168,21 +166,6 @@ export const baseNavConfig: NavItemConfig[] = [
     matchPattern: '^/org/[^/]+/tags(/.*)?$'
   },
   {
-    group: 'distribute',
-    titleKey: 'org_navigation.widgets',
-    path: '/widgets',
-    icon: WidgetsIcon,
-    matchPattern: '^(/org/[^/]+/widgets(/.*)?|/widgets/[^/]+(/.*)?)$'
-  },
-  {
-    group: 'distribute',
-    titleKey: 'settings.tabs.landing_page_tab',
-    path: '/landingpage',
-    icon: LandingPageIcon,
-    requiresAdmin: true,
-    matchPattern: '^/org/[^/]+/landingpage(/.*)?$'
-  },
-  {
     group: 'people',
     titleKey: 'org_navigation.audience',
     path: '/audience',
@@ -216,7 +199,8 @@ export const baseNavConfig: NavItemConfig[] = [
     nestedRoutes: [
       { path: 'mcp', titleKey: 'automation.tabs.mcp' },
       { path: 'api', titleKey: 'automation.tabs.api' },
-      { path: 'zapier', titleKey: 'automation.tabs.zapier' }
+      { path: 'zapier', titleKey: 'automation.tabs.zapier' },
+      { path: 'webhooks', titleKey: 'automation.tabs.webhooks' }
     ]
   },
   {
@@ -231,20 +215,12 @@ export const baseNavConfig: NavItemConfig[] = [
         titleKey: 'settings.tabs.notifications_tab'
       },
       {
-        path: 'billing',
-        titleKey: 'settings.tabs.billing_tab'
-      },
-      {
         path: 'ai-credits',
         titleKey: 'settings.tabs.ai_credits_tab'
       },
       {
         path: 'ai-tutor',
         titleKey: 'settings.tabs.ai_tutor_tab'
-      },
-      {
-        path: 'domains',
-        titleKey: 'settings.tabs.domains_tab'
       },
       {
         path: 'teams',

@@ -1,84 +1,19 @@
-<script>
-  import { goto } from '$app/navigation';
+<script lang="ts">
   import { page } from '$app/state';
   import { Button } from '@cio/ui/base/button';
-  import { Empty } from '@cio/ui/custom/empty';
-  import { ExternalLinkIcon, HomeIcon, HoverableItem } from '@cio/ui/custom/moving-icons';
-  import HeartCrack from '@lucide/svelte/icons/heart-crack';
-
-  const isNotFound = $derived(page.status === 404);
-  const isOrgSite = $derived(Boolean(page.data.isOrgSite));
-
-  console.error('Error message:', page.error?.message);
-  console.error('Error page:', page.url);
-
-  function goHome() {
-    if (isOrgSite) {
-      goto('/');
-      return;
-    }
-
-    window.location.href = 'https://classroomio.com';
-  }
-
-  function continueLearning() {
-    goto('/lms');
-  }
+  import { t } from '$lib/utils/functions/translations';
+  import { BRAND } from '$lib/utils/constants/brand';
 </script>
 
 <svelte:head>
-  <title>{isNotFound ? 'Page not found' : 'Something unexpected occurred'}</title>
+  <title>{page.status} · {BRAND.product}</title>
 </svelte:head>
 
-{#if isNotFound}
-  <Empty
-    title="Page not found"
-    description="The page you're looking for doesn't exist or you don't have permission to view it."
-    icon={HeartCrack}
-    variant="page"
-    layout="full-page"
-    showLogo={true}
-  >
-    <div class="flex items-center gap-2">
-      {#if isOrgSite}
-        <Button variant="link" onclick={continueLearning}>Continue Learning</Button>
-      {/if}
-      <HoverableItem>
-        {#snippet children(isHovered)}
-          <Button onclick={goHome}>
-            <HomeIcon {isHovered} size={16} ariaHidden={true} />
-            Go Home
-          </Button>
-        {/snippet}
-      </HoverableItem>
-    </div>
-  </Empty>
-{:else}
-  <Empty
-    title="Something unexpected occurred."
-    description="Don't worry, your learning is safe. It isn't your fault, it is ours. We have gotten the error notification and will push a fix ASAP. In the meantime, take a short break and come back a bit later."
-    icon={HeartCrack}
-    variant="page"
-    layout="full-page"
-    showLogo={true}
-  >
-    <div class="flex gap-2">
-      <HoverableItem>
-        {#snippet children(isHovered)}
-          <Button href="https://classroomio.com/changelog" variant="secondary" size="xs">
-            <ExternalLinkIcon {isHovered} size={16} ariaHidden={true} />
-            Explore our Changelog
-          </Button>
-        {/snippet}
-      </HoverableItem>
-      <HoverableItem>
-        {#snippet children(isHovered)}
-          <Button size="xs" onclick={goHome}>
-            <HomeIcon {isHovered} size={16} ariaHidden={true} />
-            Go Home
-          </Button>
-        {/snippet}
-      </HoverableItem>
-    </div>
-  </Empty>
-{/if}
+<main
+  class="ui:bg-background ui:text-foreground flex min-h-screen flex-col items-center justify-center gap-6 p-6 text-center"
+>
+  <img src={BRAND.logo} alt={BRAND.name} class="w-72 max-w-full rounded-lg bg-white p-4" />
+  <h1 class="text-5xl font-semibold">{page.status}</h1>
+  <p class="ui:text-muted-foreground">{$t('mp_learning.internal')}</p>
+  <Button href="/login">{$t('login.login')}</Button>
+</main>

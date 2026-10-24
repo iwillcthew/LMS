@@ -1641,7 +1641,7 @@
     "content": "Contenuto",
     "people": "Persone",
     "back_to_app": "Torna all'app",
-    "create": "Creare",
+    "create": "Formazione",
     "dashboard": "Pannello di controllo",
     "stats": "Statistiche",
     "analytics": "Analitica",
@@ -1649,7 +1649,7 @@
     "courses": "Corsi",
     "tags": "Tag",
     "community": "Comunità",
-    "audience": "Pubblico",
+    "audience": "Dipendenti",
     "media": "Media",
     "distribute": "Distribuire",
     "widgets": "Widget",
@@ -1666,7 +1666,7 @@
     "upgrade_count": "{studentCount}/{studentLimit}",
     "upgrade_students": "{studentCount} Di {studentLimit} studenti",
     "upgrade_left": "{count} Sinistra",
-    "cohorts": "Coorti",
+    "cohorts": "Programmi di formazione",
     "exit_course": "Esci da questo corso",
     "exit_cohort": "Esci da questa coorte"
   },
@@ -2178,8 +2178,8 @@
     "view_more": "Visualizza altro",
     "no_of_courses": "Numero di corsi",
     "no_courses_description": "Corsi creati all'interno di questa organizzazione",
-    "total_students": "Studenti totali",
-    "total_students_description": "In base alle iscrizioni degli studenti",
+    "total_students": "Totale dipendenti",
+    "total_students_description": "Dipendenti iscritti nella tua organizzazione",
     "top_courses": "I migliori corsi",
     "students": "studenti",
     "student": "studente",
@@ -6421,5 +6421,17 @@
     "new_badge": "Nuovo",
     "read_full": "Leggi il changelog completo",
     "close": "Chiudi"
+  },
+  "mp_learning": {
+    "eyebrow": "Portale di formazione interna",
+    "headline": "Impara oggi. Trasforma il domani.",
+    "description": "Sviluppa competenze e applica le tue conoscenze in MP Transformation.",
+    "learn": "Imparare",
+    "practice": "Esercitarsi",
+    "grow": "Crescere",
+    "internal": "Per i dipendenti di MP Transformation",
+    "sign_in_description": "Accedi con il tuo account di lavoro autorizzato.",
+    "invitation_hint": "Hai ricevuto un invito?",
+    "activate": "Attiva account"
   }
 }
